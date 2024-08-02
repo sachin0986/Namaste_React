@@ -1,4 +1,4 @@
-const RestaurantsData = 
+const resList = 
 [
                   {
                     "info": {
@@ -1509,4 +1509,4 @@ const RestaurantsData =
                   }
 ]
 
-export default RestaurantsData;
+export default resList;

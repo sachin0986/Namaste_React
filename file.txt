@@ -71,7 +71,13 @@ you can also use index as a key{} / key{index} but it id not recomended.
 e-5
 Dont use hard coded things or links inside any component file for good or industery level Practise.
 Types of Export - 1.default Export  2.Named Export ----> write export before the name.
+Hooks : A Normal JavaScript function, it given you the utilities functions by react, its pre build
+2 important react Hooks - 1. useState() - it maintains the state of the component/variable , 
+ex - const [resturantList, setResturantList] = useState(); - put set before the name of that variable/component you want to chnage its state.
+--> whenever the state variable updates/changes react reRenders the component  
+2. useEffect() - 
 What is optional Chaning - 
+What is Incremental Rendering - ability to spilit rendering work into chunks and spread it out over multiple frames  
 
 
 

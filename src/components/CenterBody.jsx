@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ResturantCard from './ResturantCard';
-import RestaurantsData from '../utils/mockData';
+import { useState } from 'react';
+import resList from '../utils/mockData';
+
 
 
 
 
 const CenterBody = () => {
+    const [RestaurantsData, setRestaurantsData] = useState(resList);
     return(
         <div className="body">
-            <div className="search">
-                <input type="text" placeholder='Serach Food'/>
+            <div className="filter-button">
+                <button className='filter-btn' 
+                onClick={() => {
+                    const filterdRes = RestaurantsData.filter((res) => res.info.avgRating > 4);
+                    setRestaurantsData(filterdRes);
+                }}>Top Rated Resturants</button>
             </div>
             <div className="Cart">
                 {/*if something is reused again again then create a Seprate Component */}
