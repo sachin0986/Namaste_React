@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import ResturantCard from './ResturantCard';
 import { useState } from 'react';
 import resList from '../utils/mockData';
+import { BiSearchAlt } from "react-icons/bi";
 
 
 
@@ -10,8 +11,15 @@ import resList from '../utils/mockData';
 
 const CenterBody = () => {
     const [RestaurantsData, setRestaurantsData] = useState(resList);
+    //Important very.....
+    const [Search, setSearch] = useState('');
+    console.log(Search);
     return(
         <div className="body">
+            <div className="searchButton">
+                <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search For Restaurants'/>
+                <button>< BiSearchAlt /></button>
+            </div>
             <div className="filter-button">
                 <button className='filter-btn' 
                 onClick={() => {
@@ -23,7 +31,9 @@ const CenterBody = () => {
                 {/*if something is reused again again then create a Seprate Component */}
             {/*map*/}
             {
-                RestaurantsData.map((resturant) => 
+                RestaurantsData.filter((resturant) => {
+                    return Search.toLowerCase() === '' ? resturant : resturant.info.name.toLowerCase().includes(Search)
+                }).map((resturant) => 
                     (<ResturantCard key={resturant.info.id} resData={resturant}/> ))
             }
             {/* unique Key={} whenever you use map function or loop in react always use key{} property why? - it provode a uinque id to 
