@@ -1,25 +1,31 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ResturantCard from './ResturantCard';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import resList from '../utils/mockData';
-import { BiSearchAlt } from "react-icons/bi";
+import { Data_URL } from '../utils/constants';
 
 
 
 
 
 const CenterBody = () => {
-    const [RestaurantsData, setRestaurantsData] = useState(resList);
+    const [RestaurantsData, setRestaurantsData] = useState([]);
+    
+    useEffect(() => {
+        fetchData();
+    }, [])
     //Important very.....
-    const [Search, setSearch] = useState('');
-    console.log(Search);
+
+    const fetchData = async () => {
+       const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=29.22110&lng=78.96060"); //use async await for promises
+     
+    const json = await data.json(); //converting into json format
+    console.log(json);
+    };
+
     return(
         <div className="body">
-            <div className="searchButton">
-                <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search For Restaurants'/>
-                <button>< BiSearchAlt /></button>
-            </div>
+            
             <div className="filter-button">
                 <button className='filter-btn' 
                 onClick={() => {
@@ -31,9 +37,7 @@ const CenterBody = () => {
                 {/*if something is reused again again then create a Seprate Component */}
             {/*map*/}
             {
-                RestaurantsData.filter((resturant) => {
-                    return Search.toLowerCase() === '' ? resturant : resturant.info.name.toLowerCase().includes(Search)
-                }).map((resturant) => 
+                RestaurantsData.map((resturant) => 
                     (<ResturantCard key={resturant.info.id} resData={resturant}/> ))
             }
             {/* unique Key={} whenever you use map function or loop in react always use key{} property why? - it provode a uinque id to 

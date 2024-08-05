@@ -80,6 +80,32 @@ What is optional Chaning -
 What is Incremental Rendering - ability to spilit rendering work into chunks and spread it out over multiple frames  
 
 
+E-6
+Monilith Approch -> 
+MicroServices Approch -> 
+useEffect -> 
+Rendering Approches of Backend Data --> 1. [ Load --> API --> Render ] 2. [ Load --> Render --> API --> Re-Rendering] - Best aapproch 
+fetch() -> this function is use provided by brousers/ search engines to fetch URL.  
+async await is used whay ??
+
+//....
+
+
+
+const [Search, setSearch] = useState(''); //why we left the state as empty
+
+
+
+<div className="searchButton">
+                <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search For Restaurants'/>
+                <button>< BiSearchAlt /></button>
+            </div>
+
+
+
+            filter((resturant) => {
+                    return Search.toLowerCase() === '' ? resturant : resturant.info.name.toLowerCase().includes(Search)
+                }).
 
 
 
