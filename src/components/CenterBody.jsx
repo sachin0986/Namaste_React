@@ -5,10 +5,6 @@ import resList from '../utils/mockData';
 import { Data_URL } from '../utils/constants';
 import { LuSearch } from "react-icons/lu";
 
-
-
-
-
 const CenterBody = () => {
     const [RestaurantsData, setRestaurantsData] = useState(resList);
     const [Search, setSearch] = useState(''); //we need to make the current state of search is = empty = useState(''); --> Like that otherwise error of can't read the properties of toLoweCase() function.
@@ -26,17 +22,26 @@ const CenterBody = () => {
 
     return(
         <div className="body">
+            <div className="shot_head">
+                {/*Search Button*/}
             <div className="searchButton">
                 <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search For Restaurants'/>
                 <button>< LuSearch /></button>
             </div>
-
+                     {/*Filter Button*/}
             <div className="filter-button">
                 <button className='filter-btn' 
                 onClick={() => {
                     const filterdRes = RestaurantsData.filter((res) => res.info.avgRating > 4);
                     setRestaurantsData(filterdRes);
                 }}>Top Rated Resturants</button>
+            </div>
+                 {/*All Restaurents Button*/}
+            <div className="allrest">
+                <button className='All_rest' onClick={() => {
+                    setRestaurantsData(resList);
+                }}>All Restaurents</button>
+            </div>
             </div>
             <div className="Cart">
                 {/*if something is reused again again then create a Seprate Component */}

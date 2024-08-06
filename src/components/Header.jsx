@@ -14,9 +14,11 @@ const Header = () => {
             </div>
             <div className="nav_items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact</li>
+                    <li>Swiggy Corporate</li>
+                    <li>Search</li>
+                    <li>offers</li>
+                    <li>Help</li>
+                    <li>Sign In</li>
                     <li>Cart</li>
                 </ul>
             </div>
