@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import ResturantCard from './ResturantCard';
 import { useState, useEffect } from 'react';
 import { LuSearch } from "react-icons/lu";
+import Shimmer from './Shimmer';
 
 const CenterBody = () => {
     const [RestaurantsData, setRestaurantsData] = useState([]);
+    const [Search, setSearch] = useState('');
      //we need to make the current state of search is = empty = useState(''); --> Like that otherwise error of can't read the properties of toLoweCase() function.
     useEffect(() => {fetchData()}, []);
     //Important very.....
@@ -14,18 +16,25 @@ const CenterBody = () => {
         const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=12.9715987&lng=77.5945627"); //use async await for promises
      
         const json = await data.json(); //converting into json format
-        console.log(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+        //using optional chainnig 
         setRestaurantsData(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
         };
 
-    return(
+
+        //conditional rendering -> rendering on the basis of the condition. using the terneary operator
+       
+    return RestaurantsData.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="shot_head">
                 {/*Search Button*/}
+
+
             <div className="searchButton">
-                <input type="text" placeholder='Search For Restaurants'/>
+                <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search For Restaurants'/>
                 <button>< LuSearch /></button>
             </div>
+
+
                      {/*Filter Button*/}
             <div className="filter-button">
                 <button className='filter-btn' 
@@ -40,7 +49,9 @@ const CenterBody = () => {
                 {/*if something is reused again again then create a Seprate Component */}
             {/*map*/}
             {
-                RestaurantsData.map((resturant) => 
+                RestaurantsData.filter((resturant) => {
+                    return Search.toLowerCase() === '' ? resturant : resturant.info.name.toLowerCase().includes(Search.toLowerCase());
+                }).map((resturant) => 
                     (<ResturantCard key={resturant.info.id} resData={resturant}/> ))
             }
             {/* unique Key={} whenever you use map function or loop in react always use key{} property why? - it provode a uinque id to 

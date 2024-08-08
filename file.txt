@@ -88,6 +88,9 @@ Rendering Approches of Backend Data --> 1. [ Load --> API --> Render ] 2. [ Load
 fetch() -> this function is use provided by brousers/ search engines to fetch URL.  
 async await is used whay ??
 
+//showing a spinner is not a good way 
+insted of loading our actual card with delay we load a fake page for reducing a delay with "shimmer ui"
+
 //....
 
 
@@ -105,7 +108,7 @@ const [Search, setSearch] = useState(''); //why we left the state as empty
 
             filter((resturant) => {
                     return Search.toLowerCase() === '' ? resturant : resturant.info.name.toLowerCase().includes(Search)
-                }).
+                })
 
 
 

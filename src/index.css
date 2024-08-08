@@ -81,3 +81,22 @@ text-color: #f0f0f0;
   background-color: white;
   border: none;
 }
+
+.shimmer_Container{
+  padding-left: 65px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-cards{
+  margin: 5px;
+  padding: 10 0 0 10;
+  width: 190px;
+  height: 300px;
+  background-color: #f0f0f0;
+}
+
+.login{
+  paddign:  0 20px;
+  cursor: pointer;
+}
