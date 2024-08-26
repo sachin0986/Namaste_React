@@ -100,3 +100,8 @@ text-color: #f0f0f0;
   paddign:  0 20px;
   cursor: pointer;
 }
+
+.menuImg{
+  width: 200px;
+  height: 120px; 
+}

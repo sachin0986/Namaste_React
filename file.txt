@@ -95,7 +95,25 @@ insted of loading our actual card with delay we load a fake page for reducing a 
 
 
 
-const [Search, setSearch] = useState(''); //why we left the state as empty
+const [Search, setSearch] = useState(''); //why we left the state as empty {useState is used for making Local state variable inside functional components}
+
+
+E-7
+react-router-dom -->  
+createBrowserRouter -
+RouterProvider - 
+
+oun error page - 
+errorElement -  
+useRouteError - is a Hook provided by react-router-dom ---> givs you more detailed about the error useing this you can be more specific about the error.
+outLet - it is a component 
+
+routing is of 2 types Clint Side Routing and Server Side Routing 
+
+
+
+
+
 
 
 

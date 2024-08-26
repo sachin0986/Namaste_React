@@ -4,6 +4,8 @@ import ResturantCard from './ResturantCard';
 import { useState, useEffect } from 'react';
 import { LuSearch } from "react-icons/lu";
 import Shimmer from './Shimmer';
+import { Data_URL } from '../utils/constants';
+import { Link } from 'react-router-dom';
 
 const CenterBody = () => {
     const [RestaurantsData, setRestaurantsData] = useState([]);
@@ -13,8 +15,7 @@ const CenterBody = () => {
     //Important very.....
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=12.9715987&lng=77.5945627"); //use async await for promises
-     
+        const data = await fetch(Data_URL); //use async await for promises
         const json = await data.json(); //converting into json format
         //using optional chainnig 
         setRestaurantsData(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
@@ -23,7 +24,7 @@ const CenterBody = () => {
 
         //conditional rendering -> rendering on the basis of the condition. using the terneary operator
        
-    return RestaurantsData.length === 0 ? <Shimmer /> : (
+    return RestaurantsData.length === 0 ? <Shimmer /> :(
         <div className="body">
             <div className="shot_head">
                 {/*Search Button*/}
@@ -50,9 +51,9 @@ const CenterBody = () => {
             {/*map*/}
             {
                 RestaurantsData.filter((resturant) => {
-                    return Search.toLowerCase() === '' ? resturant : resturant.info.name.toLowerCase().includes(Search.toLowerCase());
+                    return Search.toLowerCase() === '' ? resturant : resturant.info.name.toLowerCase().includes(Search.toLowerCase( ));
                 }).map((resturant) => 
-                    (<ResturantCard key={resturant.info.id} resData={resturant}/> ))
+                    (<Link key={resturant.info.id} to={"/restaurent/" + resturant.info.id} ><ResturantCard resData={resturant}/></Link> ))
             }
             {/* unique Key={} whenever you use map function or loop in react always use key{} property why? - it provode a uinque id to 
             the childrens or components at the same level and it optimizes the code/react to perform well
