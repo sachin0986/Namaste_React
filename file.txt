@@ -111,9 +111,30 @@ outLet - it is a component
 routing is of 2 types Clint Side Routing and Server Side Routing 
 
 
+E-8
+1.Class based components just have a render() method which return some peice of jsx.
+2. props in class based component - 
+3. useState - 
+4. Never ever update your state variables directly.
+      Component Did Mount - it is used to make an api calls in class based components, why --> because once we render the component on web page then we make an api call.
+5. Life cycle of that -> Parent Constructur called -> Parent render called -> child Constructur called -> child render called -> child Component did Mount called -> Parent Component did Mount called
+6. If we are using 1 class based components twise that means we are making 2 different instences of the same class. 
+      
+                --------------Mounting Cycle--------------------
+                Constructur (dummy)
+                render (dummy)
+                <HTML (dummy) >
+                componentDidMount(
+                  <Api Call>
+                  <this.setState -> state variable is updated with Api>   // it triggers the reconsiliation process in Update Cycle
+                )
 
-
-
+                ----------Update Cycle--------------------------
+                 render(Api Data)
+                  <HTML is Loaded (new Api Data)>
+                  then Component did Update called
+      
+      Component Did Update - It is called after the Update cycle 
 
 
 

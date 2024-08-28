@@ -11,38 +11,38 @@ import Error from "./components/Error";
 import RestaurantMenuPage from "./components/RestaurantMenuPage";
 
 const App = () => {
-return(
+  return (
     <div className="app">
-        <Header />
-        <Outlet />
-        < Footer />
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
-);
+  );
 };
 
- export const appRouter = createBrowserRouter([
-    {
+export const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
         path: "/",
-        element: <App />,
-        children: [
-            {
-                path: "/",
-                element: <CenterBody />,
-            },
-            {
-                path: "/about",
-                element: <About />,
-            },
-            {
-                path: "/contact",
-                element: <Contact />,
-            },
-            {
-                path: "/restaurent/:resId",
-                element: <RestaurantMenuPage />,
-            }
-        ],
-        errorElement: <Error />,
-    },
+        element: <CenterBody />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/restaurent/:resId",
+        element: <RestaurantMenuPage />,
+      },
+    ],
+    errorElement: <Error />,
+  },
 ]);
 export default App;

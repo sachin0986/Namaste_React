@@ -1,10 +1,9 @@
-
-.header{
+.header {
   display: flex;
-  justify-content : space-between;
+  justify-content: space-between;
   border: 1px solid black;
 }
-.Logo{
+.Logo {
   paddign: 15px;
   margin: 15px;
   width: 40px;
@@ -18,10 +17,10 @@
 .nav_items > ul > li {
   font-size: 20px;
   paddign: 10px;
-  margin:  10px;
+  margin: 10px;
 }
 
-.footer{
+.footer {
   margin-top: 30px;
   border: 2px solid black;
   display: flex;
@@ -31,20 +30,19 @@
   background-color: black;
   margin-bottom: 0px;
 }
-.footer > ul{
+.footer > ul {
   list-style-type: none;
 }
 
-.search{
+.search {
   width: 100%;
   text-align: center;
   padding: 15px;
   margin: 15px;
   positon: absolute;
   align-items: center;
-
 }
-.res-card{
+.res-card {
   margin: 5px;
   padding: 10 0 0 10;
   width: 190px;
@@ -57,38 +55,40 @@
 .res-card > h3 {
   margin: 0px;
 }
-.cart_image{
+.cart_image {
   width: 180px;
   height: 100px;
 }
-.Cart{
+.Cart {
   padding-left: 65px;
   display: flex;
   flex-wrap: wrap;
 }
-.shot_head{
+.shot_head {
   justify-content: center;
   display: flex;
 }
 
-.searchButton, .filter-btn, .All_rest {
-margin: 30px;
-border: none;
-background-color: white;
-text-color: #f0f0f0;
+.searchButton,
+.filter-btn,
+.All_rest {
+  margin: 30px;
+  border: none;
+  background-color: white;
+  text-color: #f0f0f0;
 }
-.LuSearch{
+.LuSearch {
   background-color: white;
   border: none;
 }
 
-.shimmer_Container{
+.shimmer_Container {
   padding-left: 65px;
   display: flex;
   flex-wrap: wrap;
 }
 
-.shimmer-cards{
+.shimmer-cards {
   margin: 5px;
   padding: 10 0 0 10;
   width: 190px;
@@ -96,12 +96,17 @@ text-color: #f0f0f0;
   background-color: #f0f0f0;
 }
 
-.login{
-  paddign:  0 20px;
+.login {
+  paddign: 0 20px;
   cursor: pointer;
 }
 
-.menuImg{
+.menuImg {
   width: 200px;
-  height: 120px; 
+  height: 120px;
+}
+
+.user-card {
+  padding: 10px;
+  border: solid 1px black;
 }
