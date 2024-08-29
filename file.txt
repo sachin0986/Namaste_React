@@ -130,12 +130,13 @@ E-8
                 )
 
                 ----------Update Cycle--------------------------
-                 render(Api Data)
+                 render(Api Data) 
                   <HTML is Loaded (new Api Data)>
                   then Component did Update called
       
       Component Did Update - It is called after the Update cycle 
-
+   Unmounting Cycle - Component Will UnMount - It is called when you change the page or remove or jump to another component.
+  
 
 
 <div className="searchButton">
